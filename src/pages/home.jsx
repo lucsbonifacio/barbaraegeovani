@@ -8,7 +8,7 @@ import Modal from '../components/modal';
 import Playlist from '../components/playlist';
 import './home.css';
 
-class Home extends Component {
+export default class Home extends Component {
     constructor(props) {
         super(props);
 
@@ -163,5 +163,3 @@ class Home extends Component {
         )
     }
 }
-
-export default Home;
