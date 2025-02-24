@@ -15,35 +15,54 @@
     align-items: center;
     background-blend-mode: multiply;
     background-color: var(--color-primary);
-    background-image: url(https://ucarecdn.com/62d49504-9de0-4a02-b7d8-a2be71a26599/-/progressive/yes/-/quality/lightest/pamellucas.jpg);
+    background-image: url(https://ucarecdn.com/9d9554ae-ba9d-4d49-905c-1f0be39e1e2a/-/progressive/yes/-/quality/lightest/babi-e-geovani.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 150%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
+    gap: 24px;
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
     padding-bottom: 32px;
     padding-left: 32px;
     padding-right: 32px;
     padding-top: 32px;
+    position: relative;
+}
+
+.picture::after {
+    background: transparent;
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 60%);
+    bottom: 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
 }
 
 .picture .logo {
     fill: var(--color-light);
     margin-top: -56px;
+    position: relative;
+    width: 300px;
+    z-index: 2;
 }
 
 .button--details {
     align-items: center;
     display: flex;
     justify-content: center;
+    position: relative;
+    z-index: 2;
 }
 
 .button--details .chevron-bottom {
-    fill: var(--color-light);
+    fill: var(--color-dark);
     height: 12px;
     margin-left: 8px;
     width: 12px;
@@ -120,12 +139,12 @@
 
     .picture {
         background-size: cover;
-        width: 70%;
+        width: 60%;
     }
 
     .picture .logo {
         margin-top: -140px;
-        width: 560px;
+        width: 300px;
     }
 
     .picture .menu,
@@ -140,7 +159,7 @@
         padding-left: 64px;
         padding-right: 64px;
         padding-top: 64px;
-        width: 30%;
+        width: 40%;
     }
 
     .information {

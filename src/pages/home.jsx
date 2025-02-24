@@ -14,6 +14,7 @@ export default class Home extends Component {
 
         this.state = {
             showModal: false,
+            modalContent: "giftList",
             windowInnerWidth: 0
         }
 
@@ -107,8 +108,8 @@ export default class Home extends Component {
         });
     }
 
-    toggleModal() {
-        this.setState({ showModal: !this.state.showModal }, () => {
+    toggleModal(modalContent) {
+        this.setState({ showModal: !this.state.showModal, modalContent: modalContent }, () => {
             const overflow = this.state.showModal ? 'hidden' : 'auto';
             const body = document.body;
             body.style.overflow = overflow;
@@ -120,7 +121,7 @@ export default class Home extends Component {
             <main className="home">
                 <section className="picture">
                     <Logo />
-                    <button className="button button--details button--primary" type="button" onClick={() => smoothScroll('detalhes')}>
+                    <button className="button button--details button--default" type="button" onClick={() => smoothScroll('detalhes')}>
                         <span className="button__label">Detalhes</span>
                         <svg className="chevron-bottom" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                             <path id="path-1" d="M11.6667 18.75 0 30.416664 50 80.416664 100 30.416664 88.3333 18.75 50 57.083364z"></path>
@@ -128,35 +129,44 @@ export default class Home extends Component {
                     </button>
                 </section>
                 <section id="detalhes" className="sidebar">
-                    <Playlist />
                     <div className="information__container">
                         <article id="data" className="information">
-                            <h2>06.10.2019</h2>
-                            <p>Domingo, 15h</p>
+                            <h2>17.05.2025</h2>
+                            <p>Sábado, 15h30</p>
                         </article>
                         <article id="endereco" className="information">
-                            <h2>Buffet Jabuticá</h2>
-                            <p>Rua Harmonia, 896</p>
-                            <p>Vila Madalena</p>
+                            <h2>Recepção</h2>
+                            <p>Rua Toledo Barbosa, 326<br />Salão de Festas</p>
+                            <p>Belenzinho</p>
                             <p>São Paulo/SP</p>
-                            <button className="button button--default" type="button" onClick={() => openLink('https://goo.gl/maps/4E2ShLMS6jcas1Zf8', '_blank')}>Ver no mapa</button>
+                            <button className="button button--default" type="button" onClick={() => openLink('https://g.co/kgs/nqJA8SA', '_blank')}>Ver no mapa</button>
+                        </article>
+                        <article id="rsvp" className="information">
+                            <h2>RSVP</h2>
+                            <button className="button button--default" type="button" onClick={() => this.toggleModal("rsvp")}>Confirme sua presença</button>
                         </article>
                         <article id="lista-de-presentes" className="information information__gifts">
                             <h2>Envie um presente</h2>
-                            <p>Por questões de logística, não fizemos uma lista “convencional” de presentes de casamento, já que não será possível levar tudo conosco para outro país. No entanto, criamos essa outra opção para que nossos convidados, caso se sintam à vontade, possam contribuir com algum valor. </p>
-                            <p>A quantia adquirida será usada para terminarmos de mobiliar e decorar nosso apê.</p>
-                            <button className="button button--primary" type="button" onClick={() => this.toggleModal()}>Ver opções</button>
+                            <p>Optamos por não fazer uma lista “convencional” de presentes de casamento. Criamos essa outra opção para que nossos convidados, caso se sintam à vontade, possam contribuir com algum valor. </p>
+                            <button className="button button--primary" type="button" onClick={() => this.toggleModal("giftList")}>Ver opções</button>
                         </article>
                     </div>
                 </section>
-                <Modal show={this.state.showModal} onClose={() => this.toggleModal()}>
+                <Modal show={this.state.showModal} onClose={() => this.toggleModal(this.state.modalContent)}>
                     <div className="modal__content">
-                        <h2>Envie um presente</h2>
-                        <p>Os itens são ilustrativos e essas quantias são algumas sugestões. Se quiser contribuir com algum outro valor que não esteja abaixo, entre em contato conosco.</p>
+                        {this.state.modalContent === "rsvp"
+                            ? <>
+                                <h2>Confirme sua presença</h2>
+                            </>
+                            : <>
+                                <h2>Envie um presente</h2>
+                                <p>Os itens são ilustrativos e essas quantias são algumas sugestões. Se quiser contribuir com algum outro valor que não esteja abaixo, entre em contato conosco.</p>
 
-                        <div className="gift__list">
-                            { this.renderGifts() }
-                        </div>
+                                <div className="gift__list">
+                                    { this.renderGifts() }
+                                </div>
+                            </>
+                        }
                     </div>
                 </Modal>
             </main>            

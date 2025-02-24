@@ -9,6 +9,7 @@
     top: calc(100% - 48px - 32px);
     transition: transform 400ms;
     width: fit-content;
+    z-index: 2;
 }
 
 .playlist:hover {
