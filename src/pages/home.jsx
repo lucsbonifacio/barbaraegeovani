@@ -140,7 +140,7 @@ export default class Home extends Component {
                             <p>Rua Toledo Barbosa, 326<br />Salão de Festas</p>
                             <p>Belenzinho</p>
                             <p>São Paulo/SP</p>
-                            <button className="button button--default" type="button" onClick={() => openLink('https://g.co/kgs/nqJA8SA', '_blank')}>Ver no mapa</button>
+                            <button className="button button--default" type="button" onClick={() => openLink('https://maps.app.goo.gl/5P2ps2g5oRVpEbrK8', '_blank')}>Ver no mapa</button>
                         </article>
                         <article id="rsvp" className="information">
                             <h2>RSVP</h2>
