@@ -1,0 +1,108 @@
+.modal {
+    background-color: var(--color-primary);
+    box-shadow: 0 8px 16px rgba(var(--color-dark-rgb), 0.2);
+    box-sizing: border-box;
+    height: 100vh;
+    left: 0;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    position: fixed;
+    top: 0;
+    transition: all 400ms;
+    width: 100%;
+}
+
+.modal.is--hidden {
+    transform: translateY(110%);
+}
+
+.modal--is-visible {
+    transform: translateY(0);
+}
+
+.modal .modal__header {
+    background-color: var(--color-primary);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+    left: 0;
+    top: 0;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 16px;
+    position: absolute;
+    transition: box-shadow 304ms;
+    width: 100%;
+    z-index: 1;
+}
+
+.modal__header.with--box-shadow {
+    box-shadow: 0 4px 8px rgba(var(--color-dark-rgb), 0.2);
+}
+
+.modal .modal__content {
+    height: calc(100vh - 56px);
+    margin-top: 38px;
+    overflow-y: scroll;
+    padding-left: 32px;
+    padding-right: 32px;    
+    -webkit-overflow-scrolling: touch;
+}
+
+.button--close {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.button--close,
+.button-close:active,
+.button--close:hover,
+.button--close:focus {
+    outline: none;
+}
+
+.button--close svg {
+    height: 16px;
+    fill: var(--color-dark);
+    width: 16px;
+}
+
+@media (min-width: 1024px) {
+    .modal {
+        left: auto;
+        padding-bottom: 24px;
+        padding-top: 24px;
+        right: 0;
+        width: 30%;
+    }
+
+    .modal .modal__content {
+        height: calc(100vh - 64px);
+        margin-top: 40px;
+        padding-left: 24px;
+        padding-right: 24px;        
+    }
+
+    .modal .modal__content h2 {
+        margin-top: 16px;
+    }
+
+    .modal .modal__header {
+        padding-bottom: 24px;
+        padding-left: 24px;
+        padding-right: 24px;
+        padding-top: 24px;
+    }
+
+    .modal.is--hidden {
+        transform: translateX(110%);
+    }
+    
+    .modal--is-visible {
+        transform: translateX(0);
+    }    
+}

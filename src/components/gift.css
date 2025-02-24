@@ -1,0 +1,82 @@
+.gift {
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-dark);
+    border-radius: 4px;
+    color: var(--color-dark);
+    box-sizing: border-box;
+    display: block;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 16px;
+    text-decoration: none;
+    transition: all 304ms;
+    width: 280px;
+}
+
+.gift:hover {
+    transform: scale(1.04);
+}
+
+.gift .icon,
+.gift .price,
+.gift .aprox-price {
+    display: block;
+}
+
+.gift .icon {
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 98px;
+    margin: 0 auto;
+    padding-bottom: 8px;
+    width: 98px;
+}
+
+.gift .icon.icon__croissant {
+    background-image: url(../assets/images/croissant.png);
+}
+
+.gift .icon.icon__jantar {
+    background-image: url(../assets/images/jantar.png);
+}
+
+.gift .icon.icon__livros {
+    background-image: url(../assets/images/livros.png);
+}
+
+.gift .icon.icon__patinete {
+    background-image: url(../assets/images/patinete.png);
+}
+
+.gift .icon.icon__piquenique {
+    background-image: url(../assets/images/piquenique.png);
+}
+
+.gift .icon.icon__supermercado {
+    background-image: url(../assets/images/supermercado.png);
+}
+
+.gift h3 {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    font-weight: 300;
+    padding-bottom: 16px;
+    text-transform: none;
+}
+
+.gift .price {
+    font-size: 20px;
+    font-weight: 600;
+    padding-bottom: 8px;
+}
+
+.gift .aprox-price {
+    font-size: 14px;
+}
+
+@media (min-width: 1024px) {
+    .gift {
+        width: 200px;
+    }
+}

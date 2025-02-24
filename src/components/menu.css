@@ -1,0 +1,41 @@
+.menu {
+    box-sizing: border-box;
+    left: 0;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 16px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.menu ul {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-left: 0;
+}
+
+.menu li {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.menu li,
+.menu li a {
+    color: var(--color-light);
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+@media (min-width: 375px) {
+    .menu li {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}

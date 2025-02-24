@@ -1,0 +1,86 @@
+.playlist {
+    align-items: center;
+    background-color: transparent;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    left: 16px;
+    position: sticky;
+    top: calc(100% - 48px - 32px);
+    transition: transform 400ms;
+    width: fit-content;
+}
+
+.playlist:hover {
+    transform: translateX(6px);
+}
+
+.button--spotify {
+    align-items: center;
+    background-color: var(--color-dark);
+    border: 0;
+    border-radius: 100%;
+    box-shadow: 0 4px 8px rgba(var(--color-dark-rgb), 0.2);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 16px;
+}
+
+.button--spotify,
+.button--spotify:active,
+.button--spotify:hover,
+.button--spotify:focus {
+    outline: none;
+}
+
+.button--spotify svg.logo {
+    fill: var(--color-primary);
+    height: 32px;
+    margin-top: 0;
+    width: 32px;
+}
+
+.button--spotify .label {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .playlist {
+        display: flex;
+        height: 72px;
+        top: 50%;
+        transform: translateX(-105px);
+        position: absolute;
+        width: 98px;
+    }
+    
+    .playlist:hover {
+        transform: translateX(40%);
+    }
+    
+    .button--spotify {
+        background-color: var(--color-primary);
+        border-radius: 0 4px 4px 0;
+        padding-bottom: 8px;
+        padding-top: 8px;
+    }
+
+    .button--spotify svg.logo {
+        fill: var(--color-dark);
+        height: 32px;
+        margin-left: 6px;
+        width: 32px;
+    }
+
+    .button--spotify .label {
+        display: block;
+        flex: 1;
+        font-weight: 600;
+        margin-right: 8px;
+        white-space: nowrap;
+    }    
+}

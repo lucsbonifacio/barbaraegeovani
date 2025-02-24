@@ -1,0 +1,86 @@
+.thank-you {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    margin-top: -48px;
+    padding-bottom: 32px;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 32px;
+}
+
+.thank-you .hearts svg {
+    fill: var(--color-light);
+    width: 120px;
+}
+
+.thank-you .hearts .heart {
+    animation: pop 1000ms infinite;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+
+.thank-you .hearts .heart:nth-child(1) {
+    animation-delay: 0.6s;
+}
+
+.thank-you .hearts .heart:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.thank-you .hearts .heart:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.thank-you .content {
+    margin-top: -16px;
+}
+
+.thank-you .content h1 {
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+.thank-you .content p {
+    font-size: 18px;
+}
+
+.thank-you .content .button {
+    margin-top: 32px;
+}
+
+@keyframes pop {
+    from {
+        opacity: 0;
+        transform: translateY(20%) scale(0.2);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (min-width: 1024px) {
+    .thank-you .hearts svg {
+        width: 240px;
+    }
+
+    .thank-you .content {
+        margin-top: -32px;
+    }    
+
+    .thank-you .content h1 {
+        font-size: 56px;
+    }
+
+    .thank-you .content p {
+        font-size: 24px;
+    }
+
+    .thank-you .content .button {
+        margin-top: 48px;
+    }    
+}
