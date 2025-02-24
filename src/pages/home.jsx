@@ -6,6 +6,7 @@ import Gift from '../components/gift';
 import Logo from '../components/logo';
 import Modal from '../components/modal';
 import Playlist from '../components/playlist';
+import Form from "../components/form";
 import './home.css';
 
 export default class Home extends Component {
@@ -157,6 +158,7 @@ export default class Home extends Component {
                         {this.state.modalContent === "rsvp"
                             ? <>
                                 <h2>Confirme sua presença</h2>
+                                <Form />
                             </>
                             : <>
                                 <h2>Envie um presente</h2>
