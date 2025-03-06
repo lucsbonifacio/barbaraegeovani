@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { smoothScroll, openLink } from '../providers/utilities';
 
-import Gift from '../components/gift';
+import GiftList from '../components/gift-list';
 import Logo from '../components/logo';
 import Modal from '../components/modal';
 import Playlist from '../components/playlist';
@@ -15,57 +15,6 @@ export default class Home extends Component {
             showModal: false,
             windowInnerWidth: 0
         }
-
-        this.gifts = [
-            {
-                icon: 'prato-feito',
-                title: 'PF para o Geovani',
-                priceInReal: 30,
-                url: '#'
-            },
-            {
-                icon: 'sorvete',
-                title: 'Sorvetinho para a Babi',
-                priceInReal: 30,
-                url: '#'
-            },
-            {
-                icon: 'cafe-da-manha',
-                title: 'Café da manhã super faturado para o casal',
-                priceInReal: 80,
-                url: '#'
-            },            
-            {
-                icon: 'bone',
-                title: 'Boné novo para o Geovani',
-                priceInReal: 100,
-                url: '#'
-            },
-            {
-                icon: 'chuteira',
-                title: 'Troque a chuteira da Babi',
-                priceInReal: 150,
-                url: '#'
-            },
-            {
-                icon: 'disco-jorge-ben',
-                title: 'Disco do Jorge Ben Jor para o Geovani',
-                priceInReal: 250,
-                url: '#'
-            },
-            {
-                icon: 'disco-lady-gaga',
-                title: 'Disco da Lady Gaga para a Babi',
-                priceInReal: 250,
-                url: '#'
-            },
-            {
-                icon: 'lua-de-mel',
-                title: 'Passeio da Lua de Mel',
-                priceInReal: 700,
-                url: '#'
-            },
-        ];
     }
 
     componentDidMount() {
@@ -103,13 +52,6 @@ export default class Home extends Component {
         //https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
         let vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
-    }
-
-    renderGifts() {
-        return this.gifts.map(gift => {
-            const { icon, title, priceInReal, priceInEuro, url } = gift;
-            return (<Gift key={title} icon={icon} title={title} priceInReal={priceInReal} priceInEuro={priceInEuro} url={url} />);
-        });
     }
 
     toggleModal() {
@@ -157,14 +99,7 @@ export default class Home extends Component {
                     </div>
                 </section>
                 <Modal show={this.state.showModal} onClose={() => this.toggleModal(this.state.modalContent)}>
-                    <div className="modal__content">
-                        <h2>Envie um presente</h2>
-                        <p>Os itens são ilustrativos e essas quantias são algumas sugestões. Se quiser contribuir com algum outro valor que não esteja abaixo, entre em contato conosco.</p>
-
-                        <div className="gift__list">
-                            { this.renderGifts() }
-                        </div>
-                    </div>
+                    <GiftList />
                 </Modal>
             </main>            
         )

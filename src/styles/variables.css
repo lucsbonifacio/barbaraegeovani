@@ -8,3 +8,7 @@
     --font-family-primary: "Antic Slab", serif;
     --font-family-secondary: "Otama EP", "serif";
 }
+
+.nowrap {
+    white-space: nowrap;
+}
