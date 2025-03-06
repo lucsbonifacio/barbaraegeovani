@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-// import { withRouter } from 'react-router-dom';
 import { smoothScroll, openLink } from '../providers/utilities';
 
 import Gift from '../components/gift';
 import Logo from '../components/logo';
 import Modal from '../components/modal';
 import Playlist from '../components/playlist';
-import Form from "../components/form";
 import './home.css';
 
 export default class Home extends Component {
@@ -15,53 +13,58 @@ export default class Home extends Component {
 
         this.state = {
             showModal: false,
-            modalContent: "giftList",
             windowInnerWidth: 0
         }
 
         this.gifts = [
             {
-                icon: 'croissant',
-                title: 'Croissants na "boulangerie"',
-                priceInReal: 25,
-                priceInEuro: 5,
-                url: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=181978185-40565c7d-9e25-49c6-88e5-9b1f7669407f'
+                icon: 'prato-feito',
+                title: 'PF para o Geovani',
+                priceInReal: 30,
+                url: '#'
             },
             {
-                icon: 'patinete',
-                title: 'Passeio de patinete pela cidade',
-                priceInReal: 50,
-                priceInEuro: 10,
-                url: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=181978185-a02eb801-4f9a-4949-906c-50499d8e3383'
+                icon: 'sorvete',
+                title: 'Sorvetinho para a Babi',
+                priceInReal: 30,
+                url: '#'
             },
             {
-                icon: 'piquenique',
-                title: 'Piquenique no jardim de Versailles',
-                priceInReal: 100,
-                priceInEuro: 20,
-                url: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=181978185-28eae47c-aa77-42c8-8506-fc3308e5b429'
+                icon: 'cafe-da-manha',
+                title: 'Café da manhã super faturado para o casal',
+                priceInReal: 80,
+                url: '#'
             },            
             {
-                icon: 'livros',
-                title: 'Material para as aulas de francês',
+                icon: 'bone',
+                title: 'Boné novo para o Geovani',
+                priceInReal: 100,
+                url: '#'
+            },
+            {
+                icon: 'chuteira',
+                title: 'Troque a chuteira da Babi',
                 priceInReal: 150,
-                priceInEuro: 30,
-                url: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=181978185-8aad55c7-5341-43e8-bce3-50c12f5851f3'
+                url: '#'
             },
             {
-                icon: 'supermercado',
-                title: 'Compras da semana no "supermarché"',
+                icon: 'disco-jorge-ben',
+                title: 'Disco do Jorge Ben Jor para o Geovani',
                 priceInReal: 250,
-                priceInEuro: 50,
-                url: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=181978185-3d749e5c-aa78-4b72-b164-50b8794e962e'
+                url: '#'
             },
             {
-                icon: 'jantar',
-                title: 'Jantar no topo da Torre Eiffel',
-                priceInReal: 500,
-                priceInEuro: 100,
-                url: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=181978185-06dd9241-bdda-404a-bc36-87109c8374a4'
-            }
+                icon: 'disco-lady-gaga',
+                title: 'Disco da Lady Gaga para a Babi',
+                priceInReal: 250,
+                url: '#'
+            },
+            {
+                icon: 'lua-de-mel',
+                title: 'Passeio da Lua de Mel',
+                priceInReal: 700,
+                url: '#'
+            },
         ];
     }
 
@@ -109,8 +112,8 @@ export default class Home extends Component {
         });
     }
 
-    toggleModal(modalContent) {
-        this.setState({ showModal: !this.state.showModal, modalContent: modalContent }, () => {
+    toggleModal() {
+        this.setState({ showModal: !this.state.showModal }, () => {
             const overflow = this.state.showModal ? 'hidden' : 'auto';
             const body = document.body;
             body.style.overflow = overflow;
@@ -143,32 +146,24 @@ export default class Home extends Component {
                             <button className="button button--default" type="button" onClick={() => openLink('https://maps.app.goo.gl/5P2ps2g5oRVpEbrK8', '_blank')}>Ver no mapa</button>
                         </article>
                         <article id="rsvp" className="information">
-                            <h2>RSVP</h2>
-                            <button className="button button--default" type="button" onClick={() => this.toggleModal("rsvp")}>Confirme sua presença</button>
+                            <h2>Confirme sua presença</h2>
+                            <button className="button button--default" type="button" onClick={() => openLink('https://forms.gle/NzxU7d4Cdt17zvXu9', '_blank')}>Confirmar</button>
                         </article>
                         <article id="lista-de-presentes" className="information information__gifts">
                             <h2>Envie um presente</h2>
                             <p>Optamos por não fazer uma lista “convencional” de presentes de casamento. Criamos essa outra opção para que nossos convidados, caso se sintam à vontade, possam contribuir com algum valor. </p>
-                            <button className="button button--primary" type="button" onClick={() => this.toggleModal("giftList")}>Ver opções</button>
+                            <button className="button button--primary" type="button" onClick={() => this.toggleModal()}>Ver opções</button>
                         </article>
                     </div>
                 </section>
                 <Modal show={this.state.showModal} onClose={() => this.toggleModal(this.state.modalContent)}>
                     <div className="modal__content">
-                        {this.state.modalContent === "rsvp"
-                            ? <>
-                                <h2>Confirme sua presença</h2>
-                                <Form />
-                            </>
-                            : <>
-                                <h2>Envie um presente</h2>
-                                <p>Os itens são ilustrativos e essas quantias são algumas sugestões. Se quiser contribuir com algum outro valor que não esteja abaixo, entre em contato conosco.</p>
+                        <h2>Envie um presente</h2>
+                        <p>Os itens são ilustrativos e essas quantias são algumas sugestões. Se quiser contribuir com algum outro valor que não esteja abaixo, entre em contato conosco.</p>
 
-                                <div className="gift__list">
-                                    { this.renderGifts() }
-                                </div>
-                            </>
-                        }
+                        <div className="gift__list">
+                            { this.renderGifts() }
+                        </div>
                     </div>
                 </Modal>
             </main>            

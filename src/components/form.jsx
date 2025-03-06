@@ -1,7 +1,20 @@
 import React, { Component } from 'react';
+import { IMaskInput } from 'react-imask';
 import './form.css';
 
 const Form = () => {
+
+    function onSubmit() {
+        console.log('Form submitted');
+        if (!grecaptcha || grecaptcha && !grecaptcha.ready) return;
+
+        grecaptcha.ready(function() {
+            grecaptcha.execute('reCAPTCHA_site_key', {action: 'submit'}).then(function(token) {
+                alert("Recaptcha completed!")
+            });
+        });
+    }
+
     return (
         <div className="form">
             <p className="form__instructions">* Campos obrigatórios</p>
@@ -20,9 +33,15 @@ const Form = () => {
                 </div>
                 <div className="form__field">
                     <label htmlFor="tel">Telefone<span className="form__required">*</span></label>
-                    <input type="text" name="tel" placeholder="Telefone" />
+                    <IMaskInput mask="(00) 00000-0000" name="tel" placeholder="Telefone" />
                 </div>
-                <button className="button button--primary">Enviar</button>
+                <button
+                    className="button button--primary g-recaptcha"
+                    onClick={(event) => {
+                        event.preventDefault();
+                        onSubmit();
+                    }}
+                >Enviar</button>
             </form>
         </div>
     )

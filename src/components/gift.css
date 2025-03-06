@@ -33,28 +33,36 @@
     width: 98px;
 }
 
-.gift .icon.icon__croissant {
-    background-image: url(../assets/images/croissant.png);
+.gift .icon.icon__bone {
+    background-image: url(../assets/images/bone.png);
 }
 
-.gift .icon.icon__jantar {
-    background-image: url(../assets/images/jantar.png);
+.gift .icon.icon__cafe-da-manha {
+    background-image: url(../assets/images/cafe-da-manha.png);
 }
 
-.gift .icon.icon__livros {
-    background-image: url(../assets/images/livros.png);
+.gift .icon.icon__chuteira {
+    background-image: url(../assets/images/chuteira.png);
 }
 
-.gift .icon.icon__patinete {
-    background-image: url(../assets/images/patinete.png);
+.gift .icon.icon__disco-jorge-ben {
+    background-image: url(../assets/images/disco-jorge-ben.png);
 }
 
-.gift .icon.icon__piquenique {
-    background-image: url(../assets/images/piquenique.png);
+.gift .icon.icon__disco-lady-gaga {
+    background-image: url(../assets/images/disco-lady-gaga.png);
 }
 
-.gift .icon.icon__supermercado {
-    background-image: url(../assets/images/supermercado.png);
+.gift .icon.icon__lua-de-mel {
+    background-image: url(../assets/images/lua-de-mel.png);
+}
+
+.gift .icon.icon__prato-feito {
+    background-image: url(../assets/images/prato-feito.png);
+}
+
+.gift .icon.icon__sorvete {
+    background-image: url(../assets/images/sorvete.png);
 }
 
 .gift h3 {
