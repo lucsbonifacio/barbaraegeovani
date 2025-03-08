@@ -89,7 +89,7 @@ export default class Home extends Component {
                         </article>
                         <article id="rsvp" className="information">
                             <h2>Confirme sua presença</h2>
-                            <button className="button button--default" type="button" onClick={() => openLink('https://forms.gle/NzxU7d4Cdt17zvXu9', '_blank')}>Confirmar</button>
+                            <button className="button button--default" type="button" onClick={() => openLink('https://docs.google.com/forms/d/e/1FAIpQLScfZXWDPCL5rFrpbTFELFuIvAk5OG6-Dth9iJQpI5kQ0HxRmQ/viewform?usp=header', '_blank')}>Confirmar</button>
                         </article>
                         <article id="lista-de-presentes" className="information information__gifts">
                             <h2>Envie um presente</h2>
