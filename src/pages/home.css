@@ -3,6 +3,7 @@
 .home {
     display: flex;
     flex-direction: column;
+    gap: 64px;
 }
 
 .picture,
@@ -122,6 +123,7 @@
 @media (min-width: 1024px) {
     .home {
         flex-direction: row;
+        gap: 0;
     }
 
     .picture {
